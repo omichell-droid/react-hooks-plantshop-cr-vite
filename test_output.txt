@@ -1,0 +1,73 @@
+
+> react-hooks-mock-code-challenge-plantshop@0.1.0 test
+> vitest --run
+
+
+ RUN  v3.0.5 /Users/macbook/react-hooks-plantshop-cr-vite
+
+ ❯ src/__tests__/test_suites/AllPlants.test.jsx (0 test)
+ ❯ src/__tests__/test_suites/InStock.test.jsx (0 test)
+ ❯ src/__tests__/test_suites/CreatePlant.test.jsx (0 test)
+ ❯ src/__tests__/App.test.jsx (0 test)
+ ❯ src/__tests__/test_suites/SearchPlants.test.jsx (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/__tests__/App.test.jsx [ src/__tests__/App.test.jsx ]
+ FAIL  src/__tests__/test_suites/AllPlants.test.jsx [ src/__tests__/test_suites/AllPlants.test.jsx ]
+ FAIL  src/__tests__/test_suites/CreatePlant.test.jsx [ src/__tests__/test_suites/CreatePlant.test.jsx ]
+ FAIL  src/__tests__/test_suites/InStock.test.jsx [ src/__tests__/test_suites/InStock.test.jsx ]
+ FAIL  src/__tests__/test_suites/SearchPlants.test.jsx [ src/__tests__/test_suites/SearchPlants.test.jsx ]
+Error: Transform failed with 4 errors:
+/Users/macbook/react-hooks-plantshop-cr-vite/src/components/NewPlantForm.jsx:64:35: ERROR: The symbol "React" has already been declared
+/Users/macbook/react-hooks-plantshop-cr-vite/src/components/NewPlantForm.jsx:64:44: ERROR: The symbol "useState" has already been declared
+/Users/macbook/react-hooks-plantshop-cr-vite/src/components/NewPlantForm.jsx:66:9: ERROR: The symbol "NewPlantForm" has already been declared
+/Users/macbook/react-hooks-plantshop-cr-vite/src/components/NewPlantForm.jsx:127:7: ERROR: Multiple exports with the same name "default"
+  Plugin: vite:esbuild
+  File: /Users/macbook/react-hooks-plantshop-cr-vite/src/components/NewPlantForm.jsx:64:35
+  
+  The symbol "React" has already been declared
+  62 |  }
+  63 |  
+  64 |  export default NewPlantForm;import React, { useState } from "react";
+     |                                     ^
+  65 |  
+  66 |  function NewPlantForm({ onAddPlant }) {
+  
+  The symbol "useState" has already been declared
+  62 |  }
+  63 |  
+  64 |  export default NewPlantForm;import React, { useState } from "react";
+     |                                              ^
+  65 |  
+  66 |  function NewPlantForm({ onAddPlant }) {
+  
+  The symbol "NewPlantForm" has already been declared
+  64 |  export default NewPlantForm;import React, { useState } from "react";
+  65 |  
+  66 |  function NewPlantForm({ onAddPlant }) {
+     |           ^
+  67 |    const [formData, setFormData] = useState({
+  68 |      name: "",
+  
+  Multiple exports with the same name "default"
+  125|  }
+  126|  
+  127|  export default NewPlantForm;
+     |         ^
+  128|  
+  
+ ❯ failureErrorWithLog node_modules/esbuild/lib/main.js:1476:15
+ ❯ node_modules/esbuild/lib/main.js:755:50
+ ❯ responseCallbacks.<computed> node_modules/esbuild/lib/main.js:622:9
+ ❯ handleIncomingPacket node_modules/esbuild/lib/main.js:677:12
+ ❯ Socket.readFromStdout node_modules/esbuild/lib/main.js:600:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+
+ Test Files  5 failed (5)
+      Tests  no tests
+   Start at  10:19:02
+   Duration  3.78s (transform 97ms, setup 2.40s, collect 0ms, tests 0ms, environment 3.99s, prepare 613ms)
+
