@@ -1,93 +1,94 @@
-# Phase 2 Code Challenge: Plantsy
+# Plantsy 🌱
+
+A React + JSON Server application for managing a plant shop's inventory. Built as
+part of a lab on connecting a React frontend to a backend API using `fetch`,
+`useEffect`, and controlled forms.
 
 ## Demo
 
-Use this gif as an example of how the app should work.
-
 ![Demo GIF](./demo.gif)
 
-## Instructions
+<!-- Replace the line above (or add below it) with a screenshot of your finished app, e.g.: -->
+<!-- ![App Screenshot](./screenshot.png) -->
 
-Welcome to Plantsy! You've been tasked with building out some features for the
-admin side of a plant store. The designers have put together the components and
-CSS. Now it's up to you to bring the features to life by adding stateful logic
-as well as persisting data to the backend via our API.
+## Description
 
-Your job will be to make our app work according to the user stories you will
-find the [Deliverables](#Deliverables) section.
+Plantsy lets a shop admin:
 
-## Setup
+- View all plants in inventory on page load (fetched from a JSON Server backend)
+- Add a new plant via a form, which persists it to the backend
+- Mark any plant as "In Stock" / "Out of Stock" (local UI state, not persisted)
+- Search plants by name, filtering the list in real time
 
-1. Run `npm install` in your terminal.
-2. Run `npm run server`. This will run your backend on port `6001`.
-3. In a new terminal, run `npm run dev`.
+## Tech Stack
 
-Make sure to open [http://localhost:6001/plants](http://localhost:6001/plants)
-in the browser to verify that your backend is working before you proceed!
+- React (function components + hooks: `useState`, `useEffect`)
+- Vite
+- JSON Server (mock REST API)
+- Vitest + React Testing Library (test suite)
 
-## Endpoints
+## Installation
 
-The base URL for your backend is: `http://localhost:6001`
+Clone the repo and install dependencies:
 
-## Deliverables
+```bash
+git clone https://github.com/omichell-droid/react-hooks-plantshop-cr-vite.git
+cd react-hooks-plantshop-cr-vite
+npm install
+```
 
-As a user:
+## Usage
 
-1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
-4. I can search for plants by their name and see a filtered list of plants.
+Run the backend and frontend in separate terminals:
 
-### Endpoints for Core Deliverables
+```bash
+npm run server   # starts JSON Server on http://localhost:6001
+npm run dev       # starts the Vite dev server (usually http://localhost:5173)
+```
 
-#### GET /plants
+Open the printed local URL in your browser to use the app. You can verify the
+backend independently by visiting
+[http://localhost:6001/plants](http://localhost:6001/plants).
 
-Example Response:
+### Running tests
+
+```bash
+npm run test
+```
+
+This runs the full Vitest suite covering: rendering plants on load, adding a
+plant via the form, marking a plant out of stock, and search filtering.
+
+## API
+
+Base URL: `http://localhost:6001`
+
+**GET `/plants`** — returns all plants
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Aloe",
-    "image": "./images/aloe.jpg",
-    "price": 15.99
-  },
-  {
-    "id": 2,
-    "name": "ZZ Plant",
-    "image": "./images/zz-plant.jpg",
-    "price": 25.98
-  }
+  { "id": 1, "name": "Aloe", "image": "./images/aloe.jpg", "price": 15.99 }
 ]
 ```
 
-#### POST `/plants`
+**POST `/plants`** — creates a new plant
 
-Required Headers:
-
-```js
-{
-  "Content-Type": "application/json"
-}
-```
-
-Request Object:
-
+Headers:
 ```json
-{
-  "name": "string",
-  "image": "string",
-  "price": number
-}
+{ "Content-Type": "application/json" }
 ```
 
-Example Response:
-
+Body:
 ```json
-{
-  "id": 1,
-  "name": "Aloe",
-  "image": "./images/aloe.jpg",
-  "price": 15.99
-}
+{ "name": "string", "image": "string", "price": "number" }
 ```
+
+## Roadmap
+
+- Persist "out of stock" status to the backend (currently local-only)
+- Add plant deletion and editing
+- Add form validation and error states
+
+## Author
+
+Built by [Your Name] as part of a Flatiron School / Learn.co lab.
